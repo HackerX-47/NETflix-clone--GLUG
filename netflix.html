@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix Clone</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #141414;
+      color: #fff;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(20, 20, 20, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #e50914;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #e50914;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: url('https://wallpaperaccess.com/download/4k-stranger-things-642696') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .hero button {
+      background-color: #e50914;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: #f40612;
+    }
+
+    /* Movie Rows */
+    .row {
+      padding: 2rem;
+    }
+
+    .row h2 {
+      margin-bottom: 1rem;
+    }
+
+    .row .movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    }
+
+    .row .movies img {
+        width: 100%;
+        aspect-ratio: 2/3; /* width : height ratio for portrait (like A4) */
+        border-radius: 5px;
+        object-fit: cover; /* ensures image fills the frame without distortion */
+        transition: transform 0.3s;
+        cursor: pointer;
+    }
+
+    .row .movies img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      background-color: #141414;
+      color: #888;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .row .movies img {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+    /* HERO FIX */
+    .hero {
+      height: 45vh; /* smaller than desktop */
+      padding: 1.2rem;
+      background-position: top center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.3)
+      );
+    }
+
+    .hero h1,
+    .hero p,
+    .hero button {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 1.6rem;
+    }
+
+    .hero p {
+      font-size: 0.85rem;
+      max-width: 100%;
+    }
+
+    .hero button {
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+    }
+
+      nav ul {
+        display: none;
+      }
+
+      /* POSTER GRID FIX */
+      .row .movies {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        justify-content: start;
+        gap: 0.8rem;
+      }
+
+      .row .movies img {
+        aspect-ratio: 2 / 3;
+      }
+    }
+
+
+    /* FAQ Section */
+  .faq {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .faq h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .faq details {
+    background-color: #2d2d2d;
+    margin-bottom: 0.8rem;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .faq summary {
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+  }
+
+  .faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+  }
+
+  .faq details[open] summary::after {
+    content: "×";
+  }
+
+  .faq details p {
+    padding: 1.2rem;
+    background-color: #1a1a1a;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .faq h2 {
+      font-size: 1.5rem;
+    }
+
+    .faq summary {
+      font-size: 1rem;
+    }
+  }
+
+    /* Netflix Footer */
+  .netflix-footer {
+    background-color: #000;
+    padding: 3rem 2rem;
+    color: #757575;
+  }
+
+  .footer-container {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .footer-links a {
+    color: #757575;
+    font-size: 0.9rem;
+    text-decoration: underline;
+  }
+
+  .footer-links a:hover {
+    color: #fff;
+  }
+
+  /* Bottom section */
+  .footer-bottom {
+    max-width: 1000px;
+    margin: 2.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .language-select {
+    width: 140px;
+    padding: 0.5rem;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 3px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.85rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">NetFlix</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">TV Shows</a></li>
+      <li><a href="#">Movies</a></li>
+      <li><a href="#">My List</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Stranger Things</h1>
+    <p>A thrilling Netflix series that mixes supernatural, suspense, and friendship in a nostalgic 80s setting.</p>
+    <button>Play</button>
+  </section>
+
+  <section class="row">
+    <h2>Trending Now</h2>
+    <div class="movies">
+      <img src="https://assetscdn1.paytm.com/images/cinema/Dhurandhar_Poster-a9676ae0-5a61-11f0-b109-2d6716fa40ab.jpg?format=webp" alt="Trending 1">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.LmoU-nMDFn7Shk0Grl3s3AHaJR?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Trending 2">
+      <img src="https://images.news18.com/ibnlive/uploads/2025/08/The-Bads-of-Bollywood-poster-2025-08-619c20f98bbde654fc60d65003e906df.jpg" alt="Trending 3">
+      <img src="https://m.media-amazon.com/images/M/MV5BZDVlYzUzMDAtM2ZmNC00ZDI4LWI3YmYtODNlNmM1MDIxODY5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 4">
+      <img src="https://i.etsystatic.com/24655456/r/il/fa4160/2578794300/il_1588xN.2578794300_1juw.jpg" alt="Trending 5">
+    </div>
+  </section>
+
+  <section class="row">
+    <h2>Top Picks</h2>
+    <div class="movies">
+      <img src="https://m.media-amazon.com/images/I/712sDu2sccL._AC_SL1500_.jpg" alt="Top Pick 1">
+      <img src="https://www.rvcj.com/wp-content/uploads/2019/05/kota-factory-poster.jpg" alt="Top Pick 2">
+      <img src="https://cdn.mos.cms.futurecdn.net/is5NgPoxzD4twTrh6MmMx3.jpg" alt="Top Pick 3">
+      <img src="https://image.tmdb.org/t/p/original/85ZFFHdTey63qBHD32tCoAtyR8E.jpg" alt="Top Pick 4">
+      <img src="https://www.themoviedb.org/t/p/original/mOUV08EAZ86mXvN8fNUowYAnmLy.jpg" alt="Top Pick 5">
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>What is Netflix?</summary>
+      <p>
+        Netflix is a streaming service that offers a wide variety of TV shows,
+        movies, anime, documentaries, and more on thousands of internet-connected devices.
+      </p>
+    </details>
+
+    <details>
+      <summary>How much does Netflix cost?</summary>
+      <p>
+        Netflix offers different plans depending on your needs.
+        You can choose a plan and cancel anytime without extra charges.
+      </p>
+    </details>
+
+    <details>
+      <summary>Where can I watch?</summary>
+      <p>
+        Watch anywhere, anytime, on your phone, tablet, laptop, or TV
+        with an internet connection.
+      </p>
+    </details>
+
+    <details>
+      <summary>How do I cancel?</summary>
+      <p>
+        Netflix is flexible. There are no contracts and no cancellation fees.
+        You can cancel your account online anytime.
+      </p>
+    </details>
+
+    <details>
+      <summary>Is this the real Netflix?</summary>
+      <p>
+        No 😄 This is a Netflix UI clone made only using HTML and CSS for learning purposes.
+      </p>
+    </details>
+  </section>
+
+  <footer class="netflix-footer">
+    <div class="footer-container">
+
+      <div class="footer-links">
+        <a href="#">FAQ</a>
+        <a href="#">Investor Relations</a>
+        <a href="#">Privacy</a>
+        <a href="#">Speed Test</a>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Help Centre</a>
+        <a href="#">Jobs</a>
+        <a href="#">Cookie Preferences</a>
+        <a href="#">Legal Notices</a>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Account</a>
+        <a href="#">Ways to Watch</a>
+        <a href="#">Corporate Information</a>
+        <a href="#">Only on Netflix</a>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Media Centre</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Contact Us</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <select class="language-select">
+        <option>English</option>
+        <option>हिन्दी</option>
+      </select>
+
+      <p>Netflix India</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>
