@@ -1,10 +1,8 @@
-// LOGIN BUTTON
 const loginBtn = document.getElementById("login-btn");
 loginBtn.addEventListener("click", () => {
   alert("Login feature coming soon 🚀");
 });
 
-// LANGUAGE CHANGE (frontend only)
 const langSelect = document.getElementById("nav-language");
 
 langSelect.addEventListener("change", () => {
@@ -15,7 +13,6 @@ langSelect.addEventListener("change", () => {
   } 
 });
 
-// TRAILER MODAL
 const posters = document.querySelectorAll(".movies img");
 const modal = document.getElementById("trailer-modal");
 const iframe = document.getElementById("trailer-frame");
@@ -31,7 +28,6 @@ posters.forEach(poster => {
   });
 });
 
-// CLOSE MODAL
 closeBtn.addEventListener("click", closeModal);
 modal.addEventListener("click", e => {
   if (e.target === modal) closeModal();
@@ -46,9 +42,7 @@ poster.addEventListener("click", () => {
     const trailerURL = poster.dataset.trailer;
     if (!trailerURL) return;
 
-    // Add autoplay param
-    iframe.src = trailerURL + "?autoplay=1&rel=0"; // rel=0 prevents related videos
-
+    iframe.src = trailerURL + "?autoplay=1&rel=0"; 
     modal.classList.remove("hidden");
 });
 
