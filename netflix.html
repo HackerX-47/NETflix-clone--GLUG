@@ -9,40 +9,68 @@
 <body>
 
   <nav>
-    <div class="logo">NetFlix</div>
+    <div class="logo">
+      <img src="assets/img/netflix_logo.png" alt="Netflix Logo" />
+    </div>
+
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">TV Shows</a></li>
       <li><a href="#">Movies</a></li>
       <li><a href="#">My List</a></li>
     </ul>
+
+    <!-- NEW -->
+    <div class="nav-right">
+      <select id="nav-language">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="de">German</option>
+        <option value="fr">French</option>
+      </select>
+
+      <div id="login-btn">Sign In</div>
+    </div>
   </nav>
 
+
   <section class="hero">
-    <h1>Stranger Things</h1>
-    <p>A thrilling Netflix series that mixes supernatural, suspense, and friendship in a nostalgic 80s setting.</p>
-    <button>Play</button>
+    <h1 class="hero-text">Unlimited movies,<br> shows, and more</h1>
+    <br>
+
+    <section class="hero-email-section">
+      <h3 class="hero-mail">
+        Ready to watch? Enter your email to create or restart your membership.
+      </h3>
+      
+      <div class="hero-email-form">
+        <input type="email" id="hero-email-input" placeholder="Enter your email" />
+        <button id="hero-email-submit">Get Started ></button>
+      </div>
+    </section>
+  </section>
+
   </section>
 
   <section class="row">
     <h2>Trending Now</h2>
     <div class="movies">
-      <img src="assets/img/dhurandhar.jpg" alt="Trending 1">
-      <img src="assets/img/taskaree.jpg" alt="Trending 2">
-      <img src="assets/img/red-notice.jpg" alt="Trending 3">
-      <img src="assets/img/stranger_things.jpg" alt="Trending 4">
-      <img src="assets/img/kapil.jpg" alt="Trending 5">
+      <img src="assets/img/dhurandhar.jpg" data-trailer="https://www.youtube.com/embed/BKOVzHcjEIo" alt="Trending 1">
+      <img src="assets/img/taskaree.jpg" data-trailer="https://www.youtube.com/embed/gKhfbEpM45E" alt="Trending 2">
+      <img src="assets/img/red-notice.jpg" data-trailer="https://www.youtube.com/embed/sGsabVSiPXY" alt="Trending 3">
+      <img src="assets/img/stranger_things.jpg" data-trailer="https://www.youtube.com/embed/gysfObBhaFE" alt="Trending 4">
+      <img src="assets/img/kapil.jpg" data-trailer="https://www.youtube.com/embed/T4NU_FXU5ro" alt="Trending 5">
     </div>
   </section>
 
   <section class="row">
     <h2>Top Picks</h2>
     <div class="movies">
-      <img src="assets/img/salaar.jpg" alt="Top Pick 1">
-      <img src="assets/img/leo.jpg" alt="Top Pick 2">
-      <img src="assets/img/jolly_llb2.jpg" alt="Top Pick 3">
-      <img src="assets/img/bridgerton.jpg" alt="Top Pick 4">
-      <img src="assets/img/animal.jpg" alt="Top Pick 5">
+      <img src="assets/img/salaar.jpg" data-trailer="https://www.youtube.com/embed/HihakYi5M2I" alt="Top Pick 1">
+      <img src="assets/img/leo.jpg" data-trailer="https://www.youtube.com/embed/FZYhL_bVQUQ" alt="Top Pick 2">
+      <img src="assets/img/jolly_llb2.jpg" data-trailer="https://www.youtube.com/embed/ajIBn8vaNq0" alt="Top Pick 3">
+      <img src="assets/img/bridgerton.jpg" data-trailer="https://www.youtube.com/embed/IqaXNwAzSmQ" alt="Top Pick 4">
+      <img src="assets/img/animal.jpg" data-trailer="https://www.youtube.com/embed/WuH9ahB-68Q" alt="Top Pick 5">
     </div>
   </section>
 
@@ -89,47 +117,66 @@
     </details>
   </section>
 
+  <section class="email-section">
+    <h3 class="mail">
+      Ready to watch? Enter your email to create or restart your membership.
+    </h3>
+    
+    <div class="email-form">
+      <input type="email" id="email-input" placeholder="Enter your email" />
+      <button id="email-submit">Get Started ></button>
+    </div>
+  </section>
+
   <footer class="netflix-footer">
     <div class="footer-container">
 
       <div class="footer-links">
-        <a href="#">FAQ</a>
-        <a href="#">Investor Relations</a>
-        <a href="#">Privacy</a>
-        <a href="#">Speed Test</a>
+        <a href="coming_soon.html">Investor Relations</a>
+        <a href="coming_soon.html">Privacy</a>
+        <a href="coming_soon.html">Speed Test</a>
       </div>
 
       <div class="footer-links">
-        <a href="#">Help Centre</a>
-        <a href="#">Jobs</a>
-        <a href="#">Cookie Preferences</a>
-        <a href="#">Legal Notices</a>
+        <a href="coming_soon.html">Help Centre</a>
+        <a href="coming_soon.html">Jobs</a>
+        <a href="coming_soon.html">Cookie Preferences</a>
+        <a href="coming_soon.html">Legal Notices</a>
       </div>
 
       <div class="footer-links">
-        <a href="#">Account</a>
-        <a href="#">Ways to Watch</a>
-        <a href="#">Corporate Information</a>
-        <a href="#">Only on Netflix</a>
+        <a href="coming_soon.html">Account</a>
+        <a href="coming_soon.html">Ways to Watch</a>
+        <a href="coming_soon.html">Corporate Information</a>
+        <a href="coming_soon.html">Only on Netflix</a>
       </div>
 
       <div class="footer-links">
-        <a href="#">Media Centre</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Contact Us</a>
+        <a href="coming_soon.html">Media Centre</a>
+        <a href="coming_soon.html">Terms of Use</a>
+        <a href="coming_soon.html">Contact Us</a>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <select class="language-select">
-        <option>English</option>
-        <option>हिन्दी</option>
-      </select>
-
-      <p>Netflix India</p>
+      <p>Netflix India @2026</p>
     </div>
   </footer>
+
+  <div id="trailer-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <iframe
+        id="trailer-frame"
+        src=""
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 
 
 </body>
