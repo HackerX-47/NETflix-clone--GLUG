@@ -9,14 +9,10 @@ const langSelect = document.getElementById("nav-language");
 
 langSelect.addEventListener("change", () => {
   if (langSelect.value === "hi") {
-    document.querySelector(".hero h1").textContent = "स्ट्रेंजर थिंग्स";
-    document.querySelector(".hero p").textContent =
-      "एक रोमांचक नेटफ्लिक्स सीरीज़ जिसमें रहस्य, दोस्ती और अलौकिक घटनाएँ हैं।";
-  } else {
-    document.querySelector(".hero h1").textContent = "Stranger Things";
-    document.querySelector(".hero p").textContent =
-      "A thrilling Netflix series that mixes supernatural, suspense, and friendship in a nostalgic 80s setting.";
-  }
+    document.querySelector(".hero h1").textContent = "असीमित फिल्में, शो और बहुत कुछ";
+    document.querySelector(".hero h3").textContent = "देखने के लिए तैयार हैं? अपनी सदस्यता बनाने या फिर से शुरू करने के लिए अपना ईमेल दर्ज करें।";
+    document.querySelector(".faq h2" ).textContent = "अक्सर पूछे जाने वाले प्रश्न";
+  } 
 });
 
 // TRAILER MODAL
